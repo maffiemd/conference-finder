@@ -19,6 +19,9 @@
     --labor: #8B3D3D;
     --hr: #2E6E60;
     --shadow: rgba(28, 29, 31, 0.08);
+    --map-land: var(--paper-raised);
+    --map-land-hover: var(--paper);
+    --map-border: var(--line-strong);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -37,6 +40,9 @@
       --labor: #C97D7D;
       --hr: #5CAE9B;
       --shadow: rgba(0, 0, 0, 0.40);
+      --map-land: #FFFFFF;
+      --map-land-hover: #DADADA;
+      --map-border: #121212;
     }
   }
 
@@ -55,6 +61,9 @@
     --labor: #C97D7D;
     --hr: #5CAE9B;
     --shadow: rgba(0, 0, 0, 0.40);
+    --map-land: #FFFFFF;
+    --map-land-hover: #DADADA;
+    --map-border: #121212;
   }
 
   * { box-sizing: border-box; }
@@ -234,13 +243,13 @@
   #map-svg { display: block; width: 100%; height: auto; cursor: grab; touch-action: none; }
   #map-svg:active { cursor: grabbing; }
   .country {
-    fill: var(--paper-raised);
-    stroke: var(--line-strong);
+    fill: var(--map-land);
+    stroke: var(--map-border);
     stroke-width: 0.5;
     transition: fill .15s ease, stroke .15s ease;
   }
-  .country:hover, .country:focus-visible { fill: var(--paper); stroke: var(--accent); outline: none; }
-  .country.active { fill: color-mix(in srgb, var(--accent) 32%, var(--paper-raised)); stroke: var(--accent); stroke-width: 1.25; }
+  .country:hover, .country:focus-visible { fill: var(--map-land-hover); stroke: var(--accent); outline: none; }
+  .country.active { fill: color-mix(in srgb, var(--accent) 32%, var(--map-land)); stroke: var(--accent); stroke-width: 1.25; }
   .map-zoom-controls {
     position: absolute;
     top: 8px;
