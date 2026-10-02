@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Conference Finder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -441,9 +442,11 @@
     .row {
       grid-template-columns: 60px 1fr;
       grid-template-areas: "stub name" "stub status";
+      align-items: start;
     }
+    .stub { margin-top: 2px; }
     .stub { grid-area: stub; }
-    .entry-name, .entry-meta { grid-area: name; }
+    .entry-main { grid-area: name; min-width: 0; }
     .status-col { grid-area: status; text-align: left; margin-top: 6px; }
     .status-col a { display: inline; margin: 0 0 0 8px; }
   }
@@ -694,7 +697,7 @@ function rowHTML(e) {
         <div class="day">${stub.day}</div>
         <div class="yr">${stub.yr}</div>
       </div>
-      <div>
+      <div class="entry-main">
         <div class="entry-name"><span class="dot"></span>${e.name} <span class="entry-org">${e.org}</span></div>
         <div class="entry-meta">${dateRangeText(e)}<span class="sep">&middot;</span>${e.city}<span class="sep">&middot;</span>${trackLabel[e.track]}${e.note ? `<span class="sep">&middot;</span>${e.note}` : ""}</div>
       </div>
